@@ -61,13 +61,15 @@ const sketch = ({ canvas }) => {
     context.fillRect(0, 0, width, height);
     context.translate(margin * width, margin * height);
 
-    if (width < height) {
+    if (width <= height) {
       let scaleFactor = width / 189 * (1 - 2 * margin);
+	    context.translate(0, (height - 2 * margin * height - 150 * scaleFactor) / 2);
       context.scale(scaleFactor, scaleFactor);
     }
 
-    if (width >= height) {
+    if (width > height) {
       let scaleFactor = height / 150 * (1 - 2 * margin);
+	    context.translate((width - 2 * margin * width - 189 * scaleFactor) / 2, 0);
       context.scale(scaleFactor, scaleFactor);
     }
 
